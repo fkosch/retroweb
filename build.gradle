@@ -44,7 +44,7 @@ sonarqube {
         property "sonar.language", "java"
         property "sonar.sources", "src"
         property "sonar.junit.reportPaths", "build/test-results/test"
-        property "sonar.coverage.exclusions", "**/exception/**,**/entity/**,**/repository/**,**/bcrypt/**"
+        property "sonar.coverage.exclusions", "**/exception/**,**/entities/**,**/repository/**,**/bcrypt/**"
         property "sonar.projectKey", "retroweb"
         property "sonar.projectName", "retroweb"
     }
