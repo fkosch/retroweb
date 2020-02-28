@@ -11,6 +11,9 @@ timeout(30) {
 		properties: [
 			disableConcurrentBuilds()
 		]
+		
+		env.JAVA_HOME="${tool 'open-jdk-13.0.2'}"
+		env.PATH="${env.JAVA_HOME}/bin:${env.PATH}"
 	
 		stage('Checkout'){
 			deleteDir() //cleanup workspace
