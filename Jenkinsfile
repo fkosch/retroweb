@@ -12,7 +12,7 @@ timeout(30) {
 			disableConcurrentBuilds()
 		]
 		
-		tools {
+		tool {
 			jdk 'open-jdk-13.0.2'
 		}
 	
