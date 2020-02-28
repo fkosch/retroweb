@@ -12,7 +12,8 @@ timeout(30) {
 			disableConcurrentBuilds()
 		]
 		
-		rtJDK.tool = 'open-jdk-13.0.2'
+		jdk = tool name: 'jdk-13.0.2'
+		env.JAVA_HOME = "${jdk}"
 	
 		stage('Checkout'){
 			deleteDir() //cleanup workspace
