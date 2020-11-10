@@ -34,7 +34,7 @@ bootWar {
 sonarqube {
     properties {
     	property "sonar.host.url", "http://141.37.122.35:8082"
-    	property "sonar.login", "20918ed11f3d955d17523cd10f99f41893db8e8f"
+    	property "sonar.login", "f026bdc4d310bdd216f276b6204e9f21338b0fd6"
 		property "sonar.sourceEncoding", "UTF-8"
         property "sonar.exclusions", "**/*Test*/**,**/*bcrypt*/**"
         property "sonar.inclusions", "**/*main/java*/**"
