@@ -12,7 +12,7 @@ timeout(30) {
 			disableConcurrentBuilds()
 		]
 		
-		jdk = tool name: 'jdk-13.0.2'
+		jdk = tool name: 'jdk-9.0.4'
 		env.JAVA_HOME = "${jdk}"
 	
 		stage('Checkout'){
