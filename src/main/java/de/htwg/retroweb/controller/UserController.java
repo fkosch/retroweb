@@ -54,14 +54,14 @@ public class UserController {
         return page;
     }
 
-    @RequestMapping(value = "/user/new", method = RequestMethod.GET)
+    @RequestMapping(value = "/newuser", method = RequestMethod.GET)
     public String newUser(Map<String, Object> model, HttpServletRequest request) {
     	LOG.debug("--> newUser");
     	
         return checkLoginAndAdmin(request.getSession(), "newuser");
     }
     
-    @RequestMapping(value = "/user/new", method = RequestMethod.POST)
+    @RequestMapping(value = "/newuser", method = RequestMethod.POST)
     public String saveNewUser(@RequestParam String name, @RequestParam String password, @RequestParam String email, @RequestParam(defaultValue = "false") boolean admin, Map<String, Object> model, HttpServletRequest request) {
         LOG.debug("--> saveNewUser");
         HttpSession session = request.getSession();
@@ -84,7 +84,7 @@ public class UserController {
     	return page;
     }
     
-    @RequestMapping(value = "/user/update", method = RequestMethod.GET)
+    @RequestMapping(value = "/updateuser", method = RequestMethod.GET)
     public String updateUserShow(@RequestParam long id, Map<String, Object> model, HttpServletRequest request) {
     	String page = checkLoginAndAdmin(request.getSession(),"updateuser");
     	if("updateuser".equals(page)) {
@@ -104,7 +104,7 @@ public class UserController {
     }
     
     
-    @RequestMapping(value = "/user/update", method = RequestMethod.POST)
+    @RequestMapping(value = "/updateuser", method = RequestMethod.POST)
     public String updateUser(@RequestParam long id, @RequestParam String name, @RequestParam String password, @RequestParam String email, @RequestParam(defaultValue = "false") boolean admin, Map<String, Object> model, HttpServletRequest request) {
     	LOG.debug("--> updateUser");
     	HttpSession session = request.getSession();

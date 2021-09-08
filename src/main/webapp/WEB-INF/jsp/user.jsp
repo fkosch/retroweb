@@ -11,7 +11,7 @@
 	<table>
 		<tr><th>Name</th><th>Email</th><th>Admin</th><th>Created</th><th>Updated</th></tr>
 		<c:forEach items="${users}" var = "user">
- 			<tr><td><a href="user/update?id=<c:out value = "${user.id}"/>"><c:out value = "${user.name}"/></a></td>
+ 			<tr><td><a href="updateuser?id=<c:out value = "${user.id}"/>"><c:out value = "${user.name}"/></a></td>
  			<td><c:out value = "${user.email}"/></td>
  			<td><c:out value = "${user.admin}"/></td>
  			<td><c:out value = "${user.created}"/></td>
@@ -20,7 +20,7 @@
 	</table>
 
 	<p>${errorMsg}</p>
-	<a href="user/new">Create a new user</a>
+	<a href="newuser">Create a new user</a>
 	<br/>
 	<a href="home">Home</a> 
 </body>

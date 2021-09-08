@@ -5,7 +5,7 @@
 <html>
 <c:import url="include/head.jsp"/>
 <body>
-	<form name="formNewUser" action="<c:url  value="/user/new"/>" method="post">  
+	<form name="formNewUser" action="<c:url  value="/newuser"/>" method="post">  
 		<label>Name</label>
 		<input type="text" name="name"/><br/>  
 		<label>Password</label>
@@ -17,7 +17,7 @@
 		<input type="submit" value="add user"/>
 	</form>
 	<br/>
-	<a href="../admin">Cancel</a>
-	<script type="text/javascript" src="<c:url value = "../resources/js/scriptUser.js"/>"></script>
+	<a href="admin">Cancel</a>
+	<script type="text/javascript" src="<c:url value = "resources/js/scriptUser.js"/>"></script>
 </body>
 </html>
