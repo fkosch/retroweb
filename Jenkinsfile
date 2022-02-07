@@ -49,7 +49,7 @@ pipeline {
       }
 	  stage('Deploy') {
             when {
-                branch 'master'
+                branch 'main'
             }
             steps {
 				lock('FitNesse') {
@@ -73,7 +73,7 @@ pipeline {
 				timeout(time: 15, unit: 'MINUTES') 
 			}
 			when {
-				branch 'master'
+				branch 'main'
 			}
 			steps {
 				sleep time: 10, unit: 'MINUTES' //Delay for FitNesse-Tests   
