@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2018 Sybit GmbH. All rights reserved.
+ * Copyright (c) 2020 Sybit GmbH. All rights reserved.
  * 
  * @author Dr. Friedrich-Karl Koschnick, Quality Management, Sybit GmbH
  */
@@ -44,11 +44,12 @@ public class LoginController {
     public String login(Map<String, Object> model) {
 
         LOG.debug("--> {}", ControllerConstants.LOGIN);
-
+        //Kommentar3
+        //Kommentar1
         LOG.debug("<-- {}", ControllerConstants.LOGIN);
         return ControllerConstants.LOGIN;
     }
-
+    
     /**
      * ControllerConstants.LOGIN controller 
      * @param username
@@ -73,7 +74,8 @@ public class LoginController {
             String msg = "Please check your input.";
             model.put("msg", msg);
             page = ControllerConstants.LOGIN;
-        }  
+        }
+        
         LOG.debug("<-- loginCheck");
         return page;
     }

@@ -36,7 +36,7 @@ public class HomeController {
     	
     	HttpSession session = request.getSession();
     	Cookie foo = new Cookie("foo", "bar");
-    	foo.setMaxAge(1000);
+    	foo.setMaxAge(3000);
     	foo.setHttpOnly(true);
     	foo.setSecure(true);
     	response.addCookie(foo);

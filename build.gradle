@@ -1,85 +1,48 @@
-buildscript {
-	ext {
-		springBootVersion = '2.2.10.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-		maven {
-      		url "https://plugins.gradle.org/m2/"
-    	}
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-		classpath("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.6.2")
-	}
+plugins {
+	id 'org.springframework.boot' version '2.6.3'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	id 'war'
+	id 'jacoco'
 }
-
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
-apply plugin: 'war'
-apply plugin: 'org.sonarqube'
-apply plugin: 'jacoco'
-
-compileJava.options.encoding = "UTF-8"
-compileTestJava.options.encoding = "UTF-8"
-
-bootWar {
-    baseName = 'retroweb'
-    mainClassName = 'de.htwg.retroweb.RetrowebApplication'
-}
-
-
-sonarqube {
-    properties {
-    	property "sonar.host.url", "http://141.37.122.35:8082"
-    	property "sonar.login", "f026bdc4d310bdd216f276b6204e9f21338b0fd6"
-		property "sonar.sourceEncoding", "UTF-8"
-        property "sonar.exclusions", "**/*Test*/**,**/*bcrypt*/**"
-        property "sonar.inclusions", "**/*main/java*/**"
-        property "sonar.test.inclusions", "**/*Test*/**"
-        property "sonar.tests", "src/test/java/de/htwg/retroweb/controller,src/test/java/de/htwg/retroweb/service"
-        property "sonar.java.test.binaries", "**/classes/java/test/**"
-        property "sonar.language", "java"
-        property "sonar.sources", "src"
-        property "sonar.junit.reportPaths", "build/test-results/test"
-        property "sonar.coverage.exclusions", "**/exception/**,**/entities/**,**/repository/**,**/bcrypt/**"
-        property "sonar.projectKey", "retroweb"
-        property "sonar.projectName", "retroweb"
-    }
-}
-
 
 group = 'de.htwg'
 //version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 1.9
+sourceCompatibility = '11'
 
 repositories {
 	mavenCentral()
 }
 
-configurations {
-    //all*.exclude module : 'spring-boot-starter-logging'
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.flywaydb:flyway-core'
+	implementation 'org.springframework.session:spring-session-core'
+	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+	implementation 'jstl:jstl:1.2'
+	implementation 'javax.validation:validation-api:2.0.1.Final'
+	implementation 'org.apache.commons:commons-lang3:3.8'
+	runtimeOnly 'com.h2database:h2'
+	runtimeOnly 'org.postgresql:postgresql'
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-dependencies {
-	compile('org.springframework.boot:spring-boot-starter-data-jpa')
-	providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
-    compile("org.apache.tomcat.embed:tomcat-embed-jasper")
-	compile('org.springframework.boot:spring-boot-starter-web')
-	compile('org.springframework.boot:spring-boot-starter-websocket')
-	//compile('org.springframework.boot:spring-boot-starter-security') //für Spring Security
-	compile('jstl:jstl:1.2')
-	//if in Memory DB h2 is used
-	compile('com.h2database:h2')
-	//initialize DB (tables, content), remove this dependency and refresh gradle when not using h2 db
-	compile('org.flywaydb:flyway-core:6.0.8')
-	//important if running with Java 9,10
-	compile('javax.xml.bind:jaxb-api:2.3.0')
-	compile('org.apache.commons:commons-lang3:3.8')
-	
-	runtime('org.springframework.boot:spring-boot-devtools')
-	runtime('mysql:mysql-connector-java')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+
+bootWar {
+	baseName = 'retroweb'
+	manifest {
+		attributes 'Main-Class': 'de.htwg.retroweb.RetrowebApplication'
+	}
+}
+
+jacocoTestReport {
+	reports {
+		xml.enabled true
+	}
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
 }

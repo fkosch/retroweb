@@ -1,35 +1,32 @@
 package de.htwg.retroweb.service;
 
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import de.htwg.retroweb.entities.User;
 import de.htwg.retroweb.exception.LoginFailedException;
 import de.htwg.retroweb.repository.UserRepository;
 
-@RunWith(SpringRunner.class)
+//@ExtendWith(UserServiceImpl.class)
 public class UserServiceTest {
 	
-	@MockBean
 	private Encryptable encryptionService;
-	
+	private UserRepository userRepo;
 	private UserService userService;
 	private List<User> users = null;
-	private UserRepository userRepo;
-
-    @Before
+    
+	@BeforeEach
     public void setUp() {
         userRepo = mock(UserRepository.class);
+        encryptionService = mock(EncryptionService.class);
         userService = new UserServiceImpl(userRepo, encryptionService);
 		users = new ArrayList<User>();
     }
@@ -68,13 +65,13 @@ public class UserServiceTest {
 		assertEquals("admin", testUser.getName());
 	}	
 	
-	@Test(expected = LoginFailedException.class)
+	@Test
 	public void testCheckLoginFailedUserNotFound() throws LoginFailedException {
 		when(userRepo.findByName("XXX")).thenReturn(users);
-		userService.checkLogin("XXX", "XXX");
+		assertThrows(LoginFailedException.class, () -> {userService.checkLogin("XXX", "XXX");});
 	}
 	
-	@Test(expected = LoginFailedException.class)
+	@Test
 	public void testCheckLoginFailedPasswordWrong() throws LoginFailedException {
 		User user = new User();
 		user.setAdmin(false);
@@ -85,6 +82,7 @@ public class UserServiceTest {
 		
 		when(userRepo.findByName("test")).thenReturn(users);
 		when(encryptionService.passwordMatches("test", "test")).thenReturn(true);
-		userService.checkLogin("test", "test1");
+		assertThrows(LoginFailedException.class, () -> {userService.checkLogin("test", "test1");});
+		
 	}
 }

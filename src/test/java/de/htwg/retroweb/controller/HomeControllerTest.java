@@ -3,15 +3,13 @@ package de.htwg.retroweb.controller;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.mock.web.MockHttpSession;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
@@ -21,7 +19,8 @@ import de.htwg.retroweb.service.SessionService;
 /**
  * @author Dr. Friedrich-Karl Koschnick, Quality Management, Sybit GmbH
  */
-@RunWith(SpringRunner.class)
+//@RunWith(SpringRunner.class)
+//@ExtendWith(SpringExtension.class)
 @WebMvcTest(HomeController.class)
 @AutoConfigureMockMvc
 public class HomeControllerTest {
@@ -32,11 +31,10 @@ public class HomeControllerTest {
 	@MockBean
 	private SessionService sessionService;
 	
-	private MockHttpSession mockSession;
+	private MockHttpSession mockSession = new MockHttpSession();
 	
-	@Before
-	public void initializeData(){
-		mockSession = new MockHttpSession();
+	@BeforeAll
+	public static void initializeData(){
 	}
 	
 	/**
