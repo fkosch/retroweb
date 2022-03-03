@@ -23,7 +23,7 @@ import de.htwg.retroweb.service.UserService;
 /**
  * @author Dr. Friedrich-Karl Koschnick, Quality Management, Sybit GmbH
  */
-//@RunWith(SpringRunner.class)
+
 @WebMvcTest(LoginController.class)
 @AutoConfigureMockMvc
 public class LoginControllerTest {

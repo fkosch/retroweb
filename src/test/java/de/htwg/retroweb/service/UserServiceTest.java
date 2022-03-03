@@ -1,6 +1,5 @@
 package de.htwg.retroweb.service;
 
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -8,6 +7,10 @@ import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.springframework.boot.test.context.SpringBootTest;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -15,19 +18,20 @@ import de.htwg.retroweb.entities.User;
 import de.htwg.retroweb.exception.LoginFailedException;
 import de.htwg.retroweb.repository.UserRepository;
 
-//@ExtendWith(UserServiceImpl.class)
+@SpringBootTest
 public class UserServiceTest {
 	
+	@Mock
 	private Encryptable encryptionService;
+	@Mock
 	private UserRepository userRepo;
-	private UserService userService;
+	@InjectMocks
+	private UserServiceImpl userService;//Achtung hier Implementierung
+	
 	private List<User> users = null;
     
 	@BeforeEach
     public void setUp() {
-        userRepo = mock(UserRepository.class);
-        encryptionService = mock(EncryptionService.class);
-        userService = new UserServiceImpl(userRepo, encryptionService);
 		users = new ArrayList<User>();
     }
 

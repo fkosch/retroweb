@@ -19,8 +19,7 @@ import de.htwg.retroweb.service.SessionService;
 /**
  * @author Dr. Friedrich-Karl Koschnick, Quality Management, Sybit GmbH
  */
-//@RunWith(SpringRunner.class)
-//@ExtendWith(SpringExtension.class)
+
 @WebMvcTest(HomeController.class)
 @AutoConfigureMockMvc
 public class HomeControllerTest {
