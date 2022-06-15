@@ -13,8 +13,7 @@ import javax.validation.constraints.Size;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "projects")
@@ -41,7 +40,7 @@ public class Project extends AbstractEntity {
 			inverseJoinColumns = { @JoinColumn(name = "user_id", nullable = false, updatable = false)
 	}) //man koennte hier auch nur die Annotation @JoinTable ohne Parameter nutzen, da die n-m-Tabelle, als auch deren Spalten der Namenskonvention entsprechen 
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JsonBackReference //important to avoid infinity loop when serializing, see also Users.java
+    @JsonIgnore
     private Set<User> users = new HashSet<>();
     
 	public long getId() {

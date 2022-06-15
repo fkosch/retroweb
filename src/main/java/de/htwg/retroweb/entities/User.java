@@ -13,8 +13,7 @@ import javax.validation.constraints.Size;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
-
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "users")
@@ -45,7 +44,7 @@ public class User extends AbstractEntity {
 
     @ManyToMany(mappedBy = "users") //inverse many-to-many (not owner)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JsonManagedReference //important to avoid infinity loop when serializing with json, see also Projects.java
+    @JsonIgnore
     private Set<Project> projects = new HashSet<>();
 
 	public long getId() {
