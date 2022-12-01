@@ -45,7 +45,7 @@ CREATE TABLE users (
 
 INSERT INTO users (username, userpw, email, isadmin, created, updated) VALUES
 	('fritz', '$2a$12$djCFq.nuALsoNE5ZlqwBauHMmblaAmoiYSXVbQYGbfQBuL30MGI0a', 'fritz@test.de', 1, '2018-07-17 15:38:58', '2018-07-17 15:38:58'),
-	('anton', '$2a$12$djCFq.nuALsoNE5ZlqwBauHMmblaAmoiYSXVbQYGbfQBuL30MGI0a', 'anton@test.de', 0, '2018-08-10 15:38:58', '2018-08-10 15:38:58'),
+	('anton', '$2a$12$XaS1AQUyh7J69SFFTrZ/D.u0SCkTjCrNtzKvoMSRDSkydJqsxOzLS', 'anton@test.de', 0, '2018-08-10 15:38:58', '2018-08-10 15:38:58'),
 	('thomas', '$2a$12$djCFq.nuALsoNE5ZlqwBauHMmblaAmoiYSXVbQYGbfQBuL30MGI0a', 'thomas@test.de', 0, '2018-08-10 15:38:58', '2018-08-10 15:38:58'),
 	('andreas', '$2a$12$djCFq.nuALsoNE5ZlqwBauHMmblaAmoiYSXVbQYGbfQBuL30MGI0a', 'andreas@test.de', 0, '2018-08-10 15:38:58', '2018-08-10 15:38:58'),
 	('susanne', '$2a$12$djCFq.nuALsoNE5ZlqwBauHMmblaAmoiYSXVbQYGbfQBuL30MGI0a', 'susanne@test.de', 0, '2018-08-10 15:38:58', '2018-08-10 15:38:58'),
