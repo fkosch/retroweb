@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020 Sybit GmbH. All rights reserved.
+ * Copyright (c) 2023 Sybit GmbH. All rights reserved.
  * 
  * @author Dr. Friedrich-Karl Koschnick, Quality Management, Sybit GmbH
  */
@@ -12,8 +12,8 @@ import de.htwg.retroweb.service.SessionService;
 import de.htwg.retroweb.service.UserService;
 
 import java.util.Map;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

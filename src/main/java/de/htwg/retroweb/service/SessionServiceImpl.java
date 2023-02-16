@@ -6,7 +6,7 @@
 
 package de.htwg.retroweb.service;
 
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Service;
 
 import de.htwg.retroweb.entities.User;

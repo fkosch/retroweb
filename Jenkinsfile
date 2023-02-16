@@ -5,7 +5,7 @@ pipeline {
         SONARQUBE_HOME = tool('SonarQube Scanner 4.6') // Name des SonarQube Scanners konfiguriert bei Jenkins Hilfsprogramme
     }
     options {
-        buildDiscarder(logRotator(numToKeepStr: '5')) // Aufräum-Strategie des Builds, hier Log Rotation mit 5 aufbewahrten Builds
+        buildDiscarder(logRotator(numToKeepStr: '5')) // Aufrï¿½um-Strategie des Builds, hier Log Rotation mit 5 aufbewahrten Builds
     }
     triggers {
         //pollSCM('H/5 * * * *') // Trigger Strategie
@@ -14,13 +14,13 @@ pipeline {
    stages {
       stage('Build') {
          steps {
-            sh 'chmod +x ./gradlew' // falls gradlew nicht ausführbar ist
+            sh 'chmod +x ./gradlew' // falls gradlew nicht ausfï¿½hrbar ist
             sh './gradlew clean build jacocoTestReport' // build Befehl
          }
       }
       stage('JUnit-Test') {
          steps {
-            junit 'build/**/TEST-*.xml' // Veröffentlichen der JUnit-Testergebnisse
+            junit 'build/**/TEST-*.xml' // Verï¿½ffentlichen der JUnit-Testergebnisse
          }
       }
       stage('SonarQube') {
@@ -59,9 +59,9 @@ pipeline {
 						echo 'Stop server ...'
 						sshCommand remote: remote, command: "cd /opt/tomcat;docker-compose stop"
 						echo 'Deploy web archive ...'
-						sshRemove remote: remote, path: '/data/tomcat/tomcat/data/retroweb.war', failOnError: false
-						sshRemove remote: remote, path: '/data/tomcat/tomcat/data/retroweb', failOnError: false
-						sshPut remote: remote, from: 'build/libs/retroweb.war', into: '/data/tomcat/tomcat/data/', failOnError: true
+						sshRemove remote: remote, path: '/data/tomcat/webapps/retroweb.war', failOnError: false
+						sshRemove remote: remote, path: '/data/tomcat/webapps/retroweb', failOnError: false
+						sshPut remote: remote, from: 'build/libs/retroweb.war', into: '/data/tomcat/webapps/', failOnError: true
 						echo 'Start server ...'
 						sshCommand remote: remote, command: "cd /opt/tomcat;docker-compose start", failOnError: true
 					}
