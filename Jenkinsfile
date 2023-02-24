@@ -2,7 +2,7 @@ pipeline {
     agent any //Jenkins Knoten auf dem der Job laufen soll
  	
 	environment {
-        SONARQUBE_HOME = tool('SonarQube Scanner 4.6') // Name des SonarQube Scanners konfiguriert bei Jenkins Hilfsprogramme
+        SONARQUBE_HOME = tool('SonarQube Scanner 4.8') // Name des SonarQube Scanners konfiguriert bei Jenkins Hilfsprogramme
     }
     options {
         buildDiscarder(logRotator(numToKeepStr: '5')) // Aufr�um-Strategie des Builds, hier Log Rotation mit 5 aufbewahrten Builds
@@ -20,7 +20,7 @@ pipeline {
       }
       stage('JUnit-Test') {
          steps {
-            junit 'build/**/TEST-*.xml' // Ver�ffentlichen der JUnit-Testergebnisse
+            junit 'build/**/TEST-*.xml' // Veroeffentlichen der JUnit-Testergebnisse
          }
       }
       stage('SonarQube') {
