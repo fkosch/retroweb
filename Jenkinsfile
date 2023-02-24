@@ -56,27 +56,22 @@ pipeline {
 					script {
 					def remote = [name: '141.37.122.35', host: '141.37.122.35', user: 'sonar', identityFile: '/var/lib/jenkins/secrets/id_rsa', passphrase: 'sonar', knownHosts: '/var/lib/jenkins/secrets/known_hosts']
 						echo 'Deploy master on PROD-Server ...'
-						echo 'Stop server ...'
-						sshCommand remote: remote, command: "cd /opt/tomcat;docker-compose stop"
 						echo 'Deploy web archive ...'
 						sshRemove remote: remote, path: '/data/tomcat/webapps/retroweb.war', failOnError: false
-						sshRemove remote: remote, path: '/data/tomcat/webapps/retroweb', failOnError: false
 						sshPut remote: remote, from: 'build/libs/retroweb.war', into: '/data/tomcat/webapps/', failOnError: true
-						echo 'Start server ...'
-						sshCommand remote: remote, command: "cd /opt/tomcat;docker-compose start", failOnError: true
 					}
 				}
             }
       }
 	  stage("UI Test") {
 			options {
-				timeout(time: 15, unit: 'MINUTES') 
+				timeout(time: 5, unit: 'MINUTES') 
 			}
 			when {
 				branch 'main'
 			}
 			steps {
-				sleep time: 10, unit: 'MINUTES' //Delay for FitNesse-Tests   
+				sleep time: 1, unit: 'MINUTES' //Delay for FitNesse-Tests   
 				lock('FitNesse') {
 					step([
 						$class: 'FitnesseBuilder',
