@@ -54,7 +54,7 @@ pipeline {
             steps {
 				lock('FitNesse') {
 					script {
-					def remote = [name: '141.37.122.35', host: '141.37.122.35', user: 'sonar', identityFile: '/var/jenkins_home/secrets/id_rsa', passphrase: 'sonar', knownHosts: '/var/jenkins_home/secrets/known_hosts']
+					def remote = [name: '141.37.122.35', host: '141.37.122.35', user: 'sonar', identityFile: '/var/lib/jenkins/secrets/id_rsa', passphrase: 'sonar', knownHosts: '/var/lib/jenkins/secrets/known_hosts']
 						echo 'Deploy master on PROD-Server ...'
 						echo 'Stop server ...'
 						sshCommand remote: remote, command: "cd /opt/tomcat;docker-compose stop"
