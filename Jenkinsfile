@@ -5,7 +5,7 @@ pipeline {
         SONARQUBE_HOME = tool('SonarQube Scanner 4.8') // Name des SonarQube Scanners konfiguriert bei Jenkins Hilfsprogramme
     }
     options {
-        buildDiscarder(logRotator(numToKeepStr: '5')) // Aufr�um-Strategie des Builds, hier Log Rotation mit 5 aufbewahrten Builds
+        buildDiscarder(logRotator(numToKeepStr: '5')) // Aufräum-Strategie des Builds, hier Log Rotation mit 5 aufbewahrten Builds
     }
     triggers {
         //pollSCM('H/5 * * * *') // Trigger Strategie
@@ -14,7 +14,7 @@ pipeline {
    stages {
       stage('Build') {
          steps {
-            sh 'chmod +x ./gradlew' // falls gradlew nicht ausf�hrbar ist
+            sh 'chmod +x ./gradlew' // falls gradlew nicht ausführbar ist
             sh './gradlew clean build jacocoTestReport' // build Befehl
          }
       }
@@ -30,19 +30,19 @@ pipeline {
                                 '-Dsonar.projectKey=retroweb ' +
                                 '-Dsonar.projectName=retroweb ' +
                                 '-Dsonar.projectVersion=origin/master ' +
-								'-Dsonar.sources=src ' +
+				'-Dsonar.sources=src ' +
                                 '-Dsonar.inclusions=**/main/java/** ' +
                                 '-Dsonar.exclusions=**/Test/**,**/bcrypt/** ' +
                                 '-Dsonar.java.binaries=**/classes/java/main/** ' +
                                 '-Dsonar.tests=src/test/java/de/htwg/retroweb/controller,src/test/java/de/htwg/retroweb/service ' +
                                 '-Dsonar.java.test.binaries=**/classes/java/test/** ' +
                                 '-Dsonar.test.inclusions=**/test/** ' +
-								'-Dsonar.java.libraries=build/libs/retroweb.war ' +
+				'-Dsonar.java.libraries=build/libs/retroweb.war ' +
                                 '-Dsonar.junit.reportPaths=build/test-results/test ' + 
                                 '-Dsonar.coverage.jacoco.xmlReportPaths=reports/jacoco/test/jacocoTestReport.xml ' +
-                                '-Dsonar.java.coveragePlugin=jacoco ' +                      // In den gradle.properties muss jacoco.enable aktiviert sein, sonst wird kein jacoco.exec generiert
+                                '-Dsonar.java.coveragePlugin=jacoco ' + // In den gradle.properties muss jacoco.enable aktiviert sein, sonst wird kein jacoco.exec generiert
                                 '-Dsonar.coverage.exclusions=**/exception/**,**/entities/**,**/repository/**,**/bcrypt/** ' +
-								'-Dsonar.dynamicAnalysis=reuseReports ' +
+				'-Dsonar.dynamicAnalysis=reuseReports ' +
                                 '-Dsonar.sourceEncoding=UTF-8 '
                             }
                     }
