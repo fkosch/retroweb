@@ -1,13 +1,12 @@
 plugins {
-	id 'org.springframework.boot' version '3.0.0'
-	id 'io.spring.dependency-management' version '1.1.0'
+	id 'org.springframework.boot' version '3.1.1'
+	id 'io.spring.dependency-management' version '1.1.2'
 	id 'java'
 	id 'war'
 	id 'jacoco'
 }
 
 group = 'de.htwg'
-//version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
 repositories {
@@ -20,7 +19,6 @@ dependencies {
 	implementation 'org.flywaydb:flyway-core'
 	implementation 'org.springframework.session:spring-session-core'
 	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
-	//implementation 'jstl:jstl:1.2'
 	implementation 'javax.validation:validation-api:2.0.1.Final'
 	implementation 'org.apache.commons:commons-lang3:3.8'
 	runtimeOnly 'com.h2database:h2'
@@ -32,15 +30,15 @@ dependencies {
 
 
 bootWar {
-	baseName = 'retroweb'
 	manifest {
 		attributes 'Main-Class': 'de.htwg.retroweb.RetrowebApplication'
 	}
 }
 
 jacocoTestReport {
+	dependsOn test
 	reports {
-		xml.enabled true
+		xml.required = true
 	}
 }
 
