@@ -1,5 +1,6 @@
 .metadata
 .gradle
+.DS_Store
 /build/
 /bin/
 !gradle/wrapper/gradle-wrapper.jar
