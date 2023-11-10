@@ -2,10 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Administration | RetroWeb</title>
-</head>
+<c:import url="include/head.jsp"/>
 <body>
 	<p>Welcome Admin: ${userName}!</p>
 	<a href="home">Home</a><br/>
