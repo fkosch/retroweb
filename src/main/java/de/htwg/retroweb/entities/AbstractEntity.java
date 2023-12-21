@@ -1,3 +1,9 @@
+/**
+ * Copyright (c) 2023 Sybit GmbH. All rights reserved.
+ * 
+ * @author Dr. Friedrich-Karl Koschnick, Quality Management, Sybit GmbH
+ */
+
 package de.htwg.retroweb.entities;
 
 import java.io.Serializable;

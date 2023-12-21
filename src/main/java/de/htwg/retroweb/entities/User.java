@@ -25,7 +25,7 @@ public class User extends AbstractEntity {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private long id = 0L;
 	
 	@Column(name = "username", nullable = false)
 	@Size(max = 255)

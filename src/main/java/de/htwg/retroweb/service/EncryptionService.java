@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2018 Sybit GmbH. All rights reserved.
+ * Copyright (c) 2023 Sybit GmbH. All rights reserved.
  * 
  * @author Dr. Friedrich-Karl Koschnick, Quality Management, Sybit GmbH
  */
@@ -14,6 +14,11 @@ import de.htwg.retroweb.service.bcrypt.BCrypt;
 public class EncryptionService implements Encryptable {
 	
 	private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(EncryptionService.class);
+	
+	public static void main(String[] args) {
+		Encryptable es = new EncryptionService();
+		System.out.println(es.encryptPassword("swen2XYZ"));
+	}
 	
 	@Override
 	public String encryptPassword(String originalPassword) {

@@ -25,7 +25,7 @@ public class Project extends AbstractEntity {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long id = 0L;
 	
 	@Column(name = "name", nullable = false)
 	@Size(max = 255)
