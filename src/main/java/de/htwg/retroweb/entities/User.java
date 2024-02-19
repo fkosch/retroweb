@@ -13,6 +13,7 @@ import javax.validation.constraints.Size;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -42,8 +43,7 @@ public class User extends AbstractEntity {
 	@Column(name = "isadmin", nullable = false)
 	private boolean admin;
 
-    @ManyToMany(mappedBy = "users") //inverse many-to-many (not owner)
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @ManyToMany(mappedBy = "users", cascade = {CascadeType.ALL}) //inverse many-to-many (not owner)
     @JsonIgnore
     private Set<Project> projects = new HashSet<>();
 
@@ -90,9 +90,10 @@ public class User extends AbstractEntity {
 	
 	@Override
 	public boolean equals(Object o) {
-		if ( o == null) {
+		if( o == null ) {
 			return false;
-		} else if (o.getClass().equals(getClass())) {
+		}
+		if(o.getClass().equals(getClass())) {
 			User u = (User) o;
 			return u.getName().equals(getName()); //name is unique, do not use id, id is null when not saved, after saving id is a number, -> hashcode would be changed
 		} else {

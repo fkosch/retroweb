@@ -6,6 +6,7 @@
 
 package de.htwg.retroweb.entities;
 
+
 import java.util.HashSet;
 import java.util.Set;
 import jakarta.persistence.*;
@@ -13,6 +14,7 @@ import javax.validation.constraints.Size;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -34,14 +36,13 @@ public class Project extends AbstractEntity {
 	@Column(name = "isactive", nullable = false)
 	private boolean active;
 	
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL) //owner of many-to-many
-	@JoinTable(name = "projects_users", joinColumns = { 
-			@JoinColumn(name = "project_id", nullable = false, updatable = false) }, 
-			inverseJoinColumns = { @JoinColumn(name = "user_id", nullable = false, updatable = false)
-	}) //man koennte hier auch nur die Annotation @JoinTable ohne Parameter nutzen, da die n-m-Tabelle, als auch deren Spalten der Namenskonvention entsprechen 
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JsonIgnore
-    private Set<User> users = new HashSet<>();
+	@ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(
+    		name = "projects_users", 
+    		joinColumns = @JoinColumn(name = "project_id", nullable = false, updatable = true, insertable = true ), 
+    		inverseJoinColumns = @JoinColumn(name = "user_id", nullable = false, updatable = true, insertable = true ))//, updatable = true, insertable = true
+	@JsonIgnore //besser fuer REST, z.B. PUT Retro
+	private Set<User> users = new HashSet<>();
     
 	public long getId() {
 		return id;
@@ -76,9 +77,10 @@ public class Project extends AbstractEntity {
 	
 	@Override
 	public boolean equals(Object o) {
-		if ( o == null ) {
+		if( o == null) {
 			return false;
-		} else if(o.getClass().equals(getClass())) {
+		}
+		if(o.getClass().equals(getClass())) {
 			Project p = (Project) o;
 			return p.getName().equals(getName()); //name is unique, do not use id, id is null when not saved, after saving id is a number, -> hashcode would be changed
 		} else {

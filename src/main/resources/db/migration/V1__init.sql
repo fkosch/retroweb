@@ -44,7 +44,7 @@ CREATE TABLE users (
 );
 
 INSERT INTO users (username, userpw, email, isadmin, created, updated) VALUES
-	('swen2', '$2a$12$E10z8ws3Ky/EEmpzvfeUrOuigsFFji6rIXs6lpp50AD6r2buo3WSC', 'swen2@test.de', 1, '2023-07-17 15:38:58', '2023-07-17 15:38:58'),
+	('swen2', '$2a$12$KK5nmVyXDRFatZHIS5UWbOVrTMeg4ZYljIbjxsGxcMuaLYN6ilh02', 'swen2@test.de', 1, '2023-07-17 15:38:58', '2023-07-17 15:38:58'),
 	('anton', '$2a$12$XaS1AQUyh7J69SFFTrZ/D.u0SCkTjCrNtzKvoMSRDSkydJqsxOzLS', 'anton@test.de', 0, '2023-08-10 15:38:58', '2023-08-10 15:38:58'),
 	('thomas', '$2a$12$djCFq.nuALsoNE5ZlqwBauHMmblaAmoiYSXVbQYGbfQBuL30MGI0a', 'thomas@test.de', 0, '2023-08-10 15:38:58', '2023-08-10 15:38:58'),
 	('andreas', '$2a$12$djCFq.nuALsoNE5ZlqwBauHMmblaAmoiYSXVbQYGbfQBuL30MGI0a', 'andreas@test.de', 0, '2023-08-10 15:38:58', '2023-08-10 15:38:58'),
@@ -64,7 +64,7 @@ INSERT INTO itemtypes (itemtype, created, updated) VALUES
 	('stop', '2023-10-02 09:38:58', '2023-10-02 09:38:58');
 
 	
-CREATE TABLE retroItems (
+CREATE TABLE retroitems (
 	id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	content VARCHAR(255) NOT NULL,
 	itemtype_ID BIGINT NOT NULL,
