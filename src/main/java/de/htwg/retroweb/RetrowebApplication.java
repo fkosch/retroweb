@@ -9,7 +9,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 public class RetrowebApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RetrowebApplication.class, args);//comment
+		SpringApplication.run(RetrowebApplication.class, args);
 	}
 	
 	@Override
