@@ -16,8 +16,6 @@ public class EncryptionService implements Encryptable {
 	private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(EncryptionService.class);
 	
 	public static void main(String[] args) {
-		//Encryptable es = new EncryptionService();
-		//System.out.println(es.encryptPassword("swen2XYZ"));
 	}
 	
 	@Override

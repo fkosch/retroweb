@@ -12,8 +12,6 @@ import java.util.Set;
 import jakarta.persistence.*;
 import javax.validation.constraints.Size;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
