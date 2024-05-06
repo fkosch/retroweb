@@ -7,7 +7,7 @@
 	});
 	
 	function createTable(projects) {
-		var txt="<table border=\"1\"><tr><th>Projects</th><th>Is Active</th><th>created</th></tr>"
+		var txt="<table border=\"1\"><thead><tr><th>Projects</th><th>Is Active</th><th>created</th></tr></thead><tbody>"
 		var line="";
 		$.each( projects, function( key, project ) {
 		    line="<tr><td><a href=\"project?id="+project.id+"\">";
@@ -19,7 +19,7 @@
 		    line+="</a></td><td>"+project.active+"</td><td>"+project.created+"</td></tr>";
 		    txt+=line;
 		});
-		txt+="</table>"
+		txt+="</tbody></table>"
 		$("#projects").html(txt);
 	}
 	
