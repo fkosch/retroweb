@@ -7,7 +7,7 @@ plugins {
 }
 
 group = 'de.htwg'
-sourceCompatibility = '21'
+//sourceCompatibility = '21'
 
 compileJava.options.encoding = 'UTF-8'
 
