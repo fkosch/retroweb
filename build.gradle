@@ -13,7 +13,6 @@ compileJava.options.encoding = 'UTF-8'
 
 repositories {
 	mavenCentral()
-	jcenter()
 }
 
 dependencies {
@@ -30,7 +29,7 @@ dependencies {
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-	implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl:2.0.0'
+	implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl:3.0.0'
 }
 
 
