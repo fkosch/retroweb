@@ -11,6 +11,11 @@ sourceCompatibility = '21'
 
 compileJava.options.encoding = 'UTF-8'
 
+eclipse.wtp.facet {
+    // Change the version of the Dynamic Web Module facet
+    facet name: 'jst.web', version: '5.0'
+}
+
 repositories {
 	mavenCentral()
 }
