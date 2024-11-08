@@ -28,7 +28,7 @@ public class AdminController {
     
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String admin(Map<String, Object> model, HttpServletRequest request) {
-    	//test comment2
+    	//test comment4
     	LOG.debug("--> admin");
     	HttpSession session = request.getSession();
     	
