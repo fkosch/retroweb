@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2023 Sybit GmbH. All rights reserved.
+ * Copyright (c) 2025 Sybit GmbH. All rights reserved.
  * 
  * @author Dr. Friedrich-Karl Koschnick, Quality Management, Sybit GmbH
  */
@@ -8,9 +8,12 @@ package de.htwg.retroweb.entities;
 
 import java.util.HashSet;
 import java.util.Set;
-import jakarta.persistence.*;
+
 import javax.validation.constraints.Size;
+
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+
+import jakarta.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

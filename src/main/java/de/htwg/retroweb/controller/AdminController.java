@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2024 Sybit GmbH. All rights reserved.
+ * Copyright (c) 2025 Sybit GmbH. All rights reserved.
  * 
  * @author Dr. Friedrich-Karl Koschnick, Quality Management, Sybit GmbH
  */
