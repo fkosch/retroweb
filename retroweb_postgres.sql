@@ -89,33 +89,33 @@ CREATE TABLE IF NOT EXISTS projects_users (
 );
 
 INSERT INTO users (id, username, userpw, email, isadmin, created, updated) VALUES
-	(1, 'fritz', '$2a$12$djCFq.nuALsoNE5ZlqwBauHMmblaAmoiYSXVbQYGbfQBuL30MGI0a', 'fritz@test.de', true, '2018-07-17 15:38:58', '2018-07-17 15:38:58'),
-	(2, 'anton', '$2a$12$djCFq.nuALsoNE5ZlqwBauHMmblaAmoiYSXVbQYGbfQBuL30MGI0a', 'anton@test.de', false, '2018-08-10 15:38:58', '2018-08-10 15:38:58'),
-	(3, 'thomas', '$2a$12$djCFq.nuALsoNE5ZlqwBauHMmblaAmoiYSXVbQYGbfQBuL30MGI0a', 'thomas@test.de', false, '2018-08-10 15:38:58', '2018-08-10 15:38:58'),
-	(4, 'andreas', '$2a$12$djCFq.nuALsoNE5ZlqwBauHMmblaAmoiYSXVbQYGbfQBuL30MGI0a', 'andreas@test.de', false, '2018-08-10 15:38:58', '2018-08-10 15:38:58'),
-	(5, 'susanne', '$2a$12$djCFq.nuALsoNE5ZlqwBauHMmblaAmoiYSXVbQYGbfQBuL30MGI0a', 'susanne@test.de', false, '2018-08-10 15:38:58', '2018-08-10 15:38:58'),
-	(6, 'nadine', '$2a$12$djCFq.nuALsoNE5ZlqwBauHMmblaAmoiYSXVbQYGbfQBuL30MGI0a', 'nadine@test.de', false, '2018-08-10 15:38:58', '2018-08-10 15:38:58');
+	(1, 'swen2', '$2a$12$KK5nmVyXDRFatZHIS5UWbOVrTMeg4ZYljIbjxsGxcMuaLYN6ilh02', 'swen2@test.de', true, '2025-07-17 15:38:58', '2025-07-17 15:38:58'),
+	(2, 'anton', '$2a$12$djCFq.nuALsoNE5ZlqwBauHMmblaAmoiYSXVbQYGbfQBuL30MGI0a', 'anton@test.de', false, '2025-08-10 15:38:58', '2025-08-10 15:38:58'),
+	(3, 'thomas', '$2a$12$djCFq.nuALsoNE5ZlqwBauHMmblaAmoiYSXVbQYGbfQBuL30MGI0a', 'thomas@test.de', false, '2025-08-10 15:38:58', '2025-08-10 15:38:58'),
+	(4, 'andreas', '$2a$12$djCFq.nuALsoNE5ZlqwBauHMmblaAmoiYSXVbQYGbfQBuL30MGI0a', 'andreas@test.de', false, '2025-08-10 15:38:58', '2025-08-10 15:38:58'),
+	(5, 'susanne', '$2a$12$djCFq.nuALsoNE5ZlqwBauHMmblaAmoiYSXVbQYGbfQBuL30MGI0a', 'susanne@test.de', false, '2025-08-10 15:38:58', '2025-08-10 15:38:58'),
+	(6, 'nadine', '$2a$12$djCFq.nuALsoNE5ZlqwBauHMmblaAmoiYSXVbQYGbfQBuL30MGI0a', 'nadine@test.de', false, '2025-08-10 15:38:58', '2025-08-10 15:38:58');
 
 INSERT INTO itemtypes (id, itemtype, created, updated) VALUES
-	(1, 'continue', '2018-10-02 09:38:58', '2018-10-02 09:38:58'),
-	(2, 'start', '2018-10-02 09:38:58', '2018-10-02 09:38:58'),
-	(3, 'stop', '2018-10-02 09:38:58', '2018-10-02 09:38:58');
+	(1, 'continue', '2025-10-02 09:38:58', '2025-10-02 09:38:58'),
+	(2, 'start', '2025-10-02 09:38:58', '2025-10-02 09:38:58'),
+	(3, 'stop', '2025-10-02 09:38:58', '2025-10-02 09:38:58');
 
 INSERT INTO projects (id, name, isactive, created, updated) VALUES
-	(1, 'project1', false, '2018-07-17 15:38:58', '2018-07-17 15:38:58'),
-	(2, 'project2', true, '2018-08-10 15:38:58', '2018-08-10 15:38:58'),
-	(3, 'project3', true, '2018-08-10 15:38:58', '2018-08-10 15:38:58'),
-	(4, 'project4', true, '2018-08-10 15:38:58', '2018-08-10 15:38:58'),
-	(5, 'project5', true, '2018-08-10 15:38:58', '2018-08-10 15:38:58'),
-	(6, 'project6', true, '2018-08-10 15:38:58', '2018-08-10 15:38:58');
+	(1, 'project1', false, '2025-07-17 15:38:58', '2025-07-17 15:38:58'),
+	(2, 'project2', true, '2025-08-10 15:38:58', '2025-08-10 15:38:58'),
+	(3, 'project3', true, '2025-08-10 15:38:58', '2025-08-10 15:38:58'),
+	(4, 'project4', true, '2025-08-10 15:38:58', '2025-08-10 15:38:58'),
+	(5, 'project5', true, '2025-08-10 15:38:58', '2025-08-10 15:38:58'),
+	(6, 'project6', true, '2025-08-10 15:38:58', '2025-08-10 15:38:58');
 
 INSERT INTO retros (id, name, scheduled, isactive, project_id, created, updated) VALUES
-	(1, 'retro1', '2018-08-11 14:30:00', false, 1, '2018-07-17 15:38:58', '2018-07-17 15:38:58'),
-	(2, 'retro2', '2018-08-17 15:30:00', false, 2, '2018-08-10 15:38:58', '2018-08-10 15:38:58'),
-	(3, 'retro3', '2018-09-05 15:00:00', true, 2, '2018-08-10 15:38:58', '2018-08-10 15:38:58'),
-	(4, 'retro4', '2018-09-17 15:00:00', false, 3, '2018-08-10 15:38:58', '2018-08-10 15:38:58'),
-	(5, 'retro5', '2018-09-18 15:00:00', false, 4, '2018-08-10 15:38:58', '2018-08-10 15:38:58'),
-	(6, 'retro6', '2018-09-19 15:00:00', false, 5, '2018-08-10 15:38:58', '2018-08-10 15:38:58');
+	(1, 'retro1', '2025-08-11 14:30:00', false, 1, '2025-07-17 15:38:58', '2025-07-17 15:38:58'),
+	(2, 'retro2', '2025-08-17 15:30:00', false, 2, '2025-08-10 15:38:58', '2025-08-10 15:38:58'),
+	(3, 'retro3', '2025-09-05 15:00:00', true, 2, '2025-08-10 15:38:58', '2025-08-10 15:38:58'),
+	(4, 'retro4', '2025-09-17 15:00:00', false, 3, '2025-08-10 15:38:58', '2025-08-10 15:38:58'),
+	(5, 'retro5', '2025-09-18 15:00:00', false, 4, '2025-08-10 15:38:58', '2025-08-10 15:38:58'),
+	(6, 'retro6', '2025-09-19 15:00:00', false, 5, '2025-08-10 15:38:58', '2025-08-10 15:38:58');
 
 INSERT INTO projects_users (project_id, user_id) VALUES
   (1,1),

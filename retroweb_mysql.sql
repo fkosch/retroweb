@@ -86,33 +86,33 @@ CREATE TABLE IF NOT EXISTS `retroweb_app`.`projects_users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO retroweb_app.users (id, username, userpw, email, isadmin, created, updated) VALUES
-	(1, 'fritz', '$2a$12$djCFq.nuALsoNE5ZlqwBauHMmblaAmoiYSXVbQYGbfQBuL30MGI0a', 'fritz@test.de', 1, '2018-07-17 15:38:58', '2018-07-17 15:38:58'),
-	(2, 'anton', '$2a$12$djCFq.nuALsoNE5ZlqwBauHMmblaAmoiYSXVbQYGbfQBuL30MGI0a', 'anton@test.de', 0, '2018-08-10 15:38:58', '2018-08-10 15:38:58'),
-	(3, 'thomas', '$2a$12$djCFq.nuALsoNE5ZlqwBauHMmblaAmoiYSXVbQYGbfQBuL30MGI0a', 'thomas@test.de', 0, '2018-08-10 15:38:58', '2018-08-10 15:38:58'),
-	(4, 'andreas', '$2a$12$djCFq.nuALsoNE5ZlqwBauHMmblaAmoiYSXVbQYGbfQBuL30MGI0a', 'andreas@test.de', 0, '2018-08-10 15:38:58', '2018-08-10 15:38:58'),
-	(5, 'susanne', '$2a$12$djCFq.nuALsoNE5ZlqwBauHMmblaAmoiYSXVbQYGbfQBuL30MGI0a', 'susanne@test.de', 0, '2018-08-10 15:38:58', '2018-08-10 15:38:58'),
-	(6, 'nadine', '$2a$12$djCFq.nuALsoNE5ZlqwBauHMmblaAmoiYSXVbQYGbfQBuL30MGI0a', 'nadine@test.de', 0, '2018-08-10 15:38:58', '2018-08-10 15:38:58');
+	(1, 'swen2', '$2a$12$KK5nmVyXDRFatZHIS5UWbOVrTMeg4ZYljIbjxsGxcMuaLYN6ilh02', 'swen2@test.de', 1, '2025-07-17 15:38:58', '2025-07-17 15:38:58'),
+	(2, 'anton', '$2a$12$djCFq.nuALsoNE5ZlqwBauHMmblaAmoiYSXVbQYGbfQBuL30MGI0a', 'anton@test.de', 0, '2025-08-10 15:38:58', '2025-08-10 15:38:58'),
+	(3, 'thomas', '$2a$12$djCFq.nuALsoNE5ZlqwBauHMmblaAmoiYSXVbQYGbfQBuL30MGI0a', 'thomas@test.de', 0, '2025-08-10 15:38:58', '2025-08-10 15:38:58'),
+	(4, 'andreas', '$2a$12$djCFq.nuALsoNE5ZlqwBauHMmblaAmoiYSXVbQYGbfQBuL30MGI0a', 'andreas@test.de', 0, '2025-08-10 15:38:58', '2025-08-10 15:38:58'),
+	(5, 'susanne', '$2a$12$djCFq.nuALsoNE5ZlqwBauHMmblaAmoiYSXVbQYGbfQBuL30MGI0a', 'susanne@test.de', 0, '2025-08-10 15:38:58', '2025-08-10 15:38:58'),
+	(6, 'nadine', '$2a$12$djCFq.nuALsoNE5ZlqwBauHMmblaAmoiYSXVbQYGbfQBuL30MGI0a', 'nadine@test.de', 0, '2025-08-10 15:38:58', '2025-08-10 15:38:58');
 
 INSERT INTO retroweb_app.itemtypes (id, itemtype, created, updated) VALUES
-	(1, 'continue', '2018-10-02 09:38:58', '2018-10-02 09:38:58'),
-	(2, 'start', '2018-10-02 09:38:58', '2018-10-02 09:38:58'),
-	(3, 'stop', '2018-10-02 09:38:58', '2018-10-02 09:38:58');
+	(1, 'continue', '2023-10-02 09:38:58', '2025-10-02 09:38:58'),
+	(2, 'start', '2023-10-02 09:38:58', '2025-10-02 09:38:58'),
+	(3, 'stop', '2023-10-02 09:38:58', '2025-10-02 09:38:58');
 
 INSERT INTO retroweb_app.projects (id, name, isactive, created, updated) VALUES
-	(1, 'project1', 0, '2018-07-17 15:38:58', '2018-07-17 15:38:58'),
-	(2, 'project2', 1, '2018-08-10 15:38:58', '2018-08-10 15:38:58'),
-	(3, 'project3', 1, '2018-08-10 15:38:58', '2018-08-10 15:38:58'),
-	(4, 'project4', 1, '2018-08-10 15:38:58', '2018-08-10 15:38:58'),
-	(5, 'project5', 1, '2018-08-10 15:38:58', '2018-08-10 15:38:58'),
-	(6, 'project6', 1, '2018-08-10 15:38:58', '2018-08-10 15:38:58');
+	(1, 'project1', 0, '2025-07-17 15:38:58', '2025-07-17 15:38:58'),
+	(2, 'project2', 1, '2025-08-10 15:38:58', '2023-08-10 15:38:58'),
+	(3, 'project3', 1, '2025-08-10 15:38:58', '2025-08-10 15:38:58'),
+	(4, 'project4', 1, '2025-08-10 15:38:58', '2025-08-10 15:38:58'),
+	(5, 'project5', 1, '2025-08-10 15:38:58', '2025-08-10 15:38:58'),
+	(6, 'project6', 1, '2025-08-10 15:38:58', '2025-08-10 15:38:58');
 
 INSERT INTO retroweb_app.retros (id, name, scheduled, isactive, project_id, created, updated) VALUES
-	(1, 'retro1', '2018-08-11 14:30:00', 0, 1, '2018-07-17 15:38:58', '2018-07-17 15:38:58'),
-	(2, 'retro2', '2018-08-17 15:30:00', 0, 2, '2018-08-10 15:38:58', '2018-08-10 15:38:58'),
-	(3, 'retro3', '2018-09-05 15:00:00', 1, 2, '2018-08-10 15:38:58', '2018-08-10 15:38:58'),
-	(4, 'retro4', '2018-09-17 15:00:00', 0, 3, '2018-08-10 15:38:58', '2018-08-10 15:38:58'),
-	(5, 'retro5', '2018-09-18 15:00:00', 0, 4, '2018-08-10 15:38:58', '2018-08-10 15:38:58'),
-	(6, 'retro6', '2018-09-19 15:00:00', 0, 5, '2018-08-10 15:38:58', '2018-08-10 15:38:58');
+	(1, 'retro1', '2025-08-11 14:30:00', 0, 1, '2025-07-17 15:38:58', '2025-07-17 15:38:58'),
+	(2, 'retro2', '2025-08-17 15:30:00', 0, 2, '2025-08-10 15:38:58', '2025-08-10 15:38:58'),
+	(3, 'retro3', '2025-09-05 15:00:00', 1, 2, '2025-08-10 15:38:58', '2025-08-10 15:38:58'),
+	(4, 'retro4', '2025-09-17 15:00:00', 0, 3, '2025-08-10 15:38:58', '2025-08-10 15:38:58'),
+	(5, 'retro5', '2025-09-18 15:00:00', 0, 4, '2025-08-10 15:38:58', '2025-08-10 15:38:58'),
+	(6, 'retro6', '2025-09-19 15:00:00', 0, 5, '2025-08-10 15:38:58', '2025-08-10 15:38:58');
 
 INSERT INTO retroweb_app.projects_users (project_id, user_id) VALUES
   (1,1),
