@@ -4,18 +4,24 @@
 <html>   
 	<c:import url="include/head.jsp"/>
 	<body>
-		<form class="form-login" action="<c:url  value="/login"/>" method="post">
-			<h1>Please Sign In</h1>
-			<p>
-				Login name:
-				<input class="login-input" name="username" type="text" placeholder="name" required />       
-			</p>
-			<p>
-				Password:
-				<input class="login-input" name="password" type="password" placeholder="password" required />
-			</p> 
-			<p class="error-msg">${msg}</p>
-			<button class="login-input" type="submit" id="loginButton">login</button>
-		</form>
+		<c:import url="include/header.jsp"/>
+        <form action="<c:url  value="/login"/>" method="post">
+        	<h3>Please Sign In</h3>
+        	<table>
+				<tr>
+					<td>Login:</td><td><input type="text" name="username" placeholder="name" required /></td>  
+				</tr><tr>
+					<td>Password:</td><td><input type="password" name="password" placeholder="password" required /></td> 
+				</tr><tr>
+					<td><button type="submit" id="loginButton">login</button></td>
+				</tr>
+				<c:if test="${msg!=null}">
+				<tr>
+					<td/><td class="error-msg">${msg}</td>
+				</tr>
+				</c:if>
+			</table>
+        </form>
+        <c:import url="include/footer.jsp"/>
     </body>
 </html>
