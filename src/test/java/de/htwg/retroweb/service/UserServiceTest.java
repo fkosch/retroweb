@@ -39,17 +39,17 @@ public class UserServiceTest {
 	public void testCheckLoginPassed() throws LoginFailedException {
 		User user = new User();
 		user.setAdmin(false);
-		user.setName("test");
-		user.setPassword("test");
+		user.setName("testUser");
+		user.setPassword("testPW");
 		user.setId((long) 1); 
 		users.add(user);
 		
-		when(userRepo.findByName("test")).thenReturn(users);
-		when(encryptionService.passwordMatches("test", "test")).thenReturn(true);
-		User testUser = userService.checkLogin("test", "test");
+		when(userRepo.findByName("testUser")).thenReturn(users);
+		when(encryptionService.passwordMatches("testPW", "testPW")).thenReturn(true);
+		User testUser = userService.checkLogin("testUser", "testPW");
 		assertEquals(false, testUser.isAdmin());
 		assertEquals(1, testUser.getId());
-		assertEquals("test", testUser.getName());
+		assertEquals("testUser", testUser.getName());
 	}
 	
 	@Test
@@ -57,13 +57,13 @@ public class UserServiceTest {
 		User user = new User();
 		user.setAdmin(true);
 		user.setName("admin");
-		user.setPassword("admin");
+		user.setPassword("adminPW");
 		user.setId(1);
 		users.add(user);
 		
 		when(userRepo.findByName("admin")).thenReturn(users);
-		when(encryptionService.passwordMatches("admin", "admin")).thenReturn(true);
-		User testUser = userService.checkLogin("admin", "admin");
+		when(encryptionService.passwordMatches("adminPW", "adminPW")).thenReturn(true);
+		User testUser = userService.checkLogin("admin", "adminPW");
 		assertEquals(true, testUser.isAdmin());
 		assertEquals(1, testUser.getId());
 		assertEquals("admin", testUser.getName());
@@ -72,21 +72,21 @@ public class UserServiceTest {
 	@Test
 	public void testCheckLoginFailedUserNotFound() throws LoginFailedException {
 		when(userRepo.findByName("XXX")).thenReturn(users);
-		assertThrows(LoginFailedException.class, () -> {userService.checkLogin("XXX", "XXX");});
+		assertThrows(LoginFailedException.class, () -> {userService.checkLogin("XXX", "BLA");});
 	}
 	
 	@Test
 	public void testCheckLoginFailedPasswordWrong() throws LoginFailedException {
 		User user = new User();
 		user.setAdmin(false);
-		user.setName("test");
-		user.setPassword("test");
+		user.setName("testUser");
+		user.setPassword("testPW");
 		user.setId((long) 1); 
 		users.add(user);
 		
-		when(userRepo.findByName("test")).thenReturn(users);
-		when(encryptionService.passwordMatches("test", "test")).thenReturn(true);
-		assertThrows(LoginFailedException.class, () -> {userService.checkLogin("test", "test1");});
+		when(userRepo.findByName("testUser")).thenReturn(users);
+		when(encryptionService.passwordMatches("testPW", "testPW")).thenReturn(true);
+		assertThrows(LoginFailedException.class, () -> {userService.checkLogin("testUser", "test1");});
 		
 	}
 }

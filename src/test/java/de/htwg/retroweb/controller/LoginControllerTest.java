@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
@@ -30,10 +30,10 @@ public class LoginControllerTest {
 	@Autowired
 	private MockMvc mvc;
 	
-	@MockBean
+	@MockitoBean
 	private UserService userService;
 	
-	@MockBean
+	@MockitoBean
 	private SessionService sessionService;
 	
 	
@@ -56,9 +56,9 @@ public class LoginControllerTest {
 	@Test
 	public void testLoginCheckFailed() throws Exception {
 		
-		when(userService.checkLogin("username", "password")).thenThrow(new LoginFailedException("User", "name", null));
+		when(userService.checkLogin("testUser", "testPassword")).thenThrow(new LoginFailedException("User", "name", null));
 		
-		mvc.perform(MockMvcRequestBuilders.post("/login").param("username", "username").param("password", "password"))
+		mvc.perform(MockMvcRequestBuilders.post("/login").param("username", "testUser").param("password", "testPassword"))
         .andExpect(status().isOk())
         .andExpect(view().name("login"))
         .andExpect(model().attribute("msg", "Please check your input."))
@@ -72,9 +72,9 @@ public class LoginControllerTest {
 	@Test
 	public void testLoginCheckPassed() throws Exception {
 		
-	    when(userService.checkLogin("test", "test")).thenReturn(null);
+	    when(userService.checkLogin("testUser", "testPW")).thenReturn(null);
 		
-		mvc.perform(MockMvcRequestBuilders.post("/login").param("username", "test").param("password", "test"))
+		mvc.perform(MockMvcRequestBuilders.post("/login").param("username", "testUser").param("password", "testPW"))
         .andExpect(status().is(302))
         .andExpect(view().name("redirect:/home"));		
 	}
