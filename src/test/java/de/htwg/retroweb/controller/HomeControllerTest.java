@@ -34,6 +34,7 @@ public class HomeControllerTest {
 	
 	@BeforeAll
 	public static void initializeData(){
+		//just to show
 	}
 	
 	/**
