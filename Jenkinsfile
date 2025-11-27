@@ -9,7 +9,7 @@ pipeline {
     }
     triggers {
         //pollSCM('H/5 * * * *') // Trigger Strategie
-        pollSCM('0 01 * * 4')//jeden Donnerstag 01:00 Uhr
+        pollSCM('0 06 * * 3')//jeden Mittwoch 06:00 Uhr
     }
 	stages {
 		stage('Build') {
