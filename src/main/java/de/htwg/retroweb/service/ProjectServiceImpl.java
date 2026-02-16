@@ -6,7 +6,7 @@
 
 package de.htwg.retroweb.service;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.slf4j.LoggerFactory;
@@ -45,7 +45,7 @@ public class ProjectServiceImpl implements ProjectService {
     	LOG.debug("--> save");
     	List<Project> projects = projectRepository.findByName(domainObject.getName());
     	if(projects.isEmpty()) {
-    		domainObject.setCreated(new Date());
+    		domainObject.setCreated(LocalDateTime.now());
     		projectRepository.save(domainObject);
     	} else {
     		LOG.debug("<-- save, ResourceAlreadyExistsException");
@@ -60,7 +60,7 @@ public class ProjectServiceImpl implements ProjectService {
     	LOG.debug("--> update");
     	
     	Project project = domainObject;
-    	project.setUpdated(new Date());
+    	project.setUpdated(LocalDateTime.now());
     	int result = projectRepository.update(project.getName(), project.isActive(), project.getUpdated(), project.getId());
     	
     	if(result < 1) {
@@ -88,7 +88,7 @@ public class ProjectServiceImpl implements ProjectService {
     }
     
     @Override
-    public List<Project> getByUserId(long id) {
+    public List<Project> getByUsersId(long id) {
     	LOG.debug("getById");
     	return projectRepository.findByUsersId(id);
     }

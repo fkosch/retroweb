@@ -16,7 +16,7 @@
 		    } else {
 		    	line+="<em>"+project.name+"</em>";
 		    }
-		    line+="</a></td><td>"+project.active+"</td><td>"+project.created+"</td></tr>";
+		    line+="</a></td><td>"+project.active+"</td><td>"+project.formattedcreated+"</td></tr>";
 		    txt+=line;
 		});
 		txt+="</tbody></table>"
@@ -25,7 +25,7 @@
 	
 	function showProject(id) {
 		$.get("projects/" + id, function(project){
-			$("#project").html("<h2>Details of " + project.name + "</h2><p>" + project.active +"</p><p>" + project.created + "</p>");
+			$("#project").html("<h2>Details of " + project.name + "</h2><p>" + project.active +"</p><p>" + project.formattedcreated + "</p>");
     	});
 	}
 	

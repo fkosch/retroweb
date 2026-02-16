@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class LoginController {
 
     private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(LoginController.class);
-
+    
     UserService userService;
     SessionService sessionService;
     
@@ -44,12 +44,11 @@ public class LoginController {
     public String login(Map<String, Object> model) {
 
         LOG.debug("--> {}", ControllerConstants.LOGIN);
-        //Kommentar3
-        //Kommentar1
+
         LOG.debug("<-- {}", ControllerConstants.LOGIN);
         return ControllerConstants.LOGIN;
     }
-    
+
     /**
      * ControllerConstants.LOGIN controller 
      * @param username
@@ -74,8 +73,7 @@ public class LoginController {
             String msg = "Please check your input.";
             model.put("msg", msg);
             page = ControllerConstants.LOGIN;
-        }
-        
+        }  
         LOG.debug("<-- loginCheck");
         return page;
     }

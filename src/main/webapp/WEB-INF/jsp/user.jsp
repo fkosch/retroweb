@@ -33,8 +33,8 @@
  			<tr><td><a href="updateuser?id=<c:out value = "${user.id}"/>"><c:out value = "${user.name}"/></a></td>
  			<td><c:out value = "${user.email}"/></td>
  			<td><c:out value = "${user.admin}"/></td>
- 			<td><c:out value = "${user.created}"/></td>
- 			<td><c:out value = "${user.updated}"/></td></tr>
+ 			<td><c:out value = "${user.formattedcreated}"/></td>
+ 			<td><c:out value = "${user.formattedupdated}"/></td></tr>
 		</c:forEach>
 	</table>
 	<c:import url="include/footer.jsp"/>

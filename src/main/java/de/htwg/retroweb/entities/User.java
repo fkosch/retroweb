@@ -8,13 +8,9 @@ package de.htwg.retroweb.entities;
 
 import java.util.HashSet;
 import java.util.Set;
-
-import javax.validation.constraints.Size;
-
-import org.apache.commons.lang3.builder.HashCodeBuilder;
-
 import jakarta.persistence.*;
-
+import javax.validation.constraints.Size;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity

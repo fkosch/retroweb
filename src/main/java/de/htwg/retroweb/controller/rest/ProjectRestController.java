@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2023 Sybit GmbH. All rights reserved.
+ * Copyright (c) 2025 Sybit GmbH. All rights reserved.
  * 
  * @author Dr. Friedrich-Karl Koschnick, Quality Management, Sybit GmbH
  */
@@ -34,8 +34,8 @@ public class ProjectRestController {
     private SessionService sessionService;
     
     @Autowired
-    public ProjectRestController(ProjectService projectService, SessionService sessionService) {
-    	this.projectService = projectService;
+    public ProjectRestController(ProjectService projectsService, SessionService sessionService) {
+    	this.projectService = projectsService;
     	this.sessionService = sessionService;
     }
 
@@ -46,7 +46,7 @@ public class ProjectRestController {
         if(sessionService.isLoggedIn(session)) { //this is not compliant to REST, sessions are not allowed, but we do not use an authorization server here!!!
         	response.setHeader("Cache-Control", "no-cache");
         	LOG.debug("<-- getAllProjects");
-        	return projectService.getByUserId(sessionService.getUserId(session)); //ArrayList implements Serializable, therefore this will be converted to JSON, automatically
+        	return projectService.getByUsersId(sessionService.getUserId(session)); //ArrayList implements Serializable, therefore this will be converted to JSON, automatically
         } else {
         	response.setStatus(401); //http status unauthorized
         	LOG.debug("<-- getAllProjects");

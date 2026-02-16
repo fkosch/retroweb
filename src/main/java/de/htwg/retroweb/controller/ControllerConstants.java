@@ -15,6 +15,8 @@ public class ControllerConstants {
     public static final String REDIRECT_USER = "redirect:/user";
     public static final String USER = "user";
     public static final String PROJECT = "project";
+    public static final String RETRO = "retro";
+    public static final String REDIRECT_RETRO = "redirect:/retro";
     
     public static final String ERROR_MSG = "errorMsg";
 	

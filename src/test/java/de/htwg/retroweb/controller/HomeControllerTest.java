@@ -6,8 +6,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
+import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
 import org.springframework.mock.web.MockHttpSession;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
@@ -19,7 +19,6 @@ import de.htwg.retroweb.service.SessionService;
 /**
  * @author Dr. Friedrich-Karl Koschnick, Quality Management, Sybit GmbH
  */
-
 @WebMvcTest(HomeController.class)
 @AutoConfigureMockMvc
 public class HomeControllerTest {
@@ -34,7 +33,6 @@ public class HomeControllerTest {
 	
 	@BeforeAll
 	public static void initializeData(){
-		//just to show
 	}
 	
 	/**
@@ -49,7 +47,7 @@ public class HomeControllerTest {
 		
 		mvc.perform(MockMvcRequestBuilders.get("/home").session(mockSession))
 		.andExpect(cookie().exists("foo"))
-		.andExpect(model().size(2))
+		.andExpect(model().size(3))
         .andExpect(model().attribute("userName", "test"))
         .andExpect(model().attribute("isAdmin", false))
 		.andExpect(status().isOk())

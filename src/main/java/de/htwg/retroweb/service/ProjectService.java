@@ -13,6 +13,6 @@ import de.htwg.retroweb.entities.Project;
 public interface ProjectService extends CRUDable<Project> {
 	
     public List<Project> getByName(String name);
-    public List<Project> getByUserId(long id);
+    public List<Project> getByUsersId(long id);
 
 }

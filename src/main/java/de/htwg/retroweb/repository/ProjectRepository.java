@@ -6,7 +6,7 @@
 
 package de.htwg.retroweb.repository;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -24,5 +24,5 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
 	@Transactional
 	@Modifying
 	@Query("update Project p set p.name = ?1, p.active = ?2, p.updated = ?3 where p.id = ?4")
-	int update(String name, boolean isActive, Date updated, long id);	
+	int update(String name, boolean isActive, LocalDateTime updated, long id);	
 }

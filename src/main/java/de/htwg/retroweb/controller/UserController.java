@@ -45,11 +45,11 @@ public class UserController {
         String page = checkLoginAndAdmin(session, "user");
         
         if("user".equals(page)) {
+        	model.put(ControllerConstants.ERROR_MSG, session.getAttribute(ControllerConstants.ERROR_MSG));
+        	session.removeAttribute(ControllerConstants.ERROR_MSG);
         	List<User> users = userService.listAll();
         	model.put("users", users);
         	model.put("userName", userName);
-        	model.put(ControllerConstants.ERROR_MSG, session.getAttribute(ControllerConstants.ERROR_MSG));
-        	session.removeAttribute(ControllerConstants.ERROR_MSG);
         }
         return page;
     }
@@ -127,6 +127,25 @@ public class UserController {
     		} catch(ResourceNotFoundException e) {
     			LOG.error("UserController->updateUser", e);
     			session.setAttribute(ControllerConstants.ERROR_MSG, e.getMessage());
+    		}
+    	}
+    	return page;
+    }
+    
+    @RequestMapping(value = "/deleteuser", method = RequestMethod.GET)
+    public String deleteUser(@RequestParam long id, Map<String, Object> model, HttpServletRequest request) {
+    	LOG.debug("--> deleteUser");
+    	HttpSession session = request.getSession();
+    	String page = checkLoginAndAdmin(session,ControllerConstants.REDIRECT_USER);
+    	
+    	if(ControllerConstants.REDIRECT_USER.equals(page)) {
+    		try {
+    			userService.delete(id);
+    		} catch(ResourceNotFoundException e) {
+    			LOG.error("UserController->deleteUser", e);
+    			session.setAttribute(ControllerConstants.ERROR_MSG, e.getMessage());
+    		} catch(Exception e) {
+    			session.setAttribute(ControllerConstants.ERROR_MSG, "User could not be deleted, because of references in projects!");
     		}
     	}
     	return page;

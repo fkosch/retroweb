@@ -38,10 +38,10 @@ public class Project extends AbstractEntity {
     @JoinTable(
     		name = "projects_users", 
     		joinColumns = @JoinColumn(name = "project_id", nullable = false, updatable = true, insertable = true ), 
-    		inverseJoinColumns = @JoinColumn(name = "user_id", nullable = false, updatable = true, insertable = true ))//, updatable = true, insertable = true
+    		inverseJoinColumns = @JoinColumn(name = "user_id", nullable = false, updatable = true, insertable = true ))
 	@JsonIgnore //besser fuer REST, z.B. PUT Retro
 	private Set<User> users = new HashSet<>();
-    
+	
 	public long getId() {
 		return id;
 	}
@@ -71,7 +71,6 @@ public class Project extends AbstractEntity {
 	public Set<User> getUsers() {
 		return users;
 	}
-
 	
 	@Override
 	public boolean equals(Object o) {

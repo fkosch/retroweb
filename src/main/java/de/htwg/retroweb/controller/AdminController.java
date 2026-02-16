@@ -21,14 +21,14 @@ import de.htwg.retroweb.service.SessionService;
 @Controller
 public class AdminController {
 	
-    private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(HomeController.class);
+    private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(AdminController.class);
     
     @Autowired
     SessionService sessionService;
     
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String admin(Map<String, Object> model, HttpServletRequest request) {
-    	//test comment3
+    	
     	LOG.debug("--> admin");
     	HttpSession session = request.getSession();
     	

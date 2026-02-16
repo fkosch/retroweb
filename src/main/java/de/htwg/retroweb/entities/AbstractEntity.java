@@ -1,13 +1,8 @@
-/**
- * Copyright (c) 2025 Sybit GmbH. All rights reserved.
- * 
- * @author Dr. Friedrich-Karl Koschnick, Quality Management, Sybit GmbH
- */
-
 package de.htwg.retroweb.entities;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import jakarta.persistence.*;
 
@@ -25,21 +20,24 @@ public abstract class AbstractEntity implements Serializable {
 	*/
 	private static final long serialVersionUID = 5994288598031975413L;
 
-	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "created", nullable = false, updatable = false)
 	@CreatedDate
-	private Date created;
+	private LocalDateTime created;
 
-	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "updated", nullable = false)
 	@LastModifiedDate
-	private Date updated;
+	private LocalDateTime updated;
 
-	public Date getCreated() {
+	public LocalDateTime getCreated() {
 		return created;
 	}
 	
-	public void setCreated(Date created) {
+	public String getFormattedcreated() {
+		DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss") ;
+		return created.format(df);
+	}
+	
+	public void setCreated(LocalDateTime created) {
 		if(this.created == null) {
 			this.created = created;
 		}
@@ -48,11 +46,16 @@ public abstract class AbstractEntity implements Serializable {
 		}
 	}
 
-	public Date getUpdated() {
+	public LocalDateTime getUpdated() {
 		return updated;
 	}
 	
-	public void setUpdated(Date updated) {
+	public String getFormattedupdated() {
+		DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss") ;
+		return updated.format(df);
+	}
+	
+	public void setUpdated(LocalDateTime updated) {
 		this.updated = updated;
 	}
 }

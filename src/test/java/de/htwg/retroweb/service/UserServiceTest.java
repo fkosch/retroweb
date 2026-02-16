@@ -7,9 +7,8 @@ import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -21,11 +20,11 @@ import de.htwg.retroweb.repository.UserRepository;
 @SpringBootTest
 public class UserServiceTest {
 	
-	@Mock
+	@MockitoBean
 	private Encryptable encryptionService;
-	@Mock
+	@MockitoBean
 	private UserRepository userRepo;
-	@InjectMocks
+
 	private UserServiceImpl userService;//Achtung hier Implementierung
 	
 	private List<User> users = null;
@@ -33,6 +32,7 @@ public class UserServiceTest {
 	@BeforeEach
     public void setUp() {
 		users = new ArrayList<User>();
+		userService = new UserServiceImpl(userRepo, encryptionService);
     }
 
 	@Test

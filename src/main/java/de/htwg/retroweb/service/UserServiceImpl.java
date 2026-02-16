@@ -6,7 +6,7 @@
 
 package de.htwg.retroweb.service;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.slf4j.LoggerFactory;
@@ -78,7 +78,7 @@ public class UserServiceImpl implements UserService {
     	LOG.debug("--> save");
     	List<User> users = userRepository.findByName(domainObject.getName());
     	if(users.isEmpty()) {
-    		domainObject.setCreated(new Date());
+    		domainObject.setCreated(LocalDateTime.now());
     		userRepository.save(encryptPassword(domainObject));
     	} else {
     		LOG.debug("<-- save, ResourceAlreadyExistsException");
@@ -93,7 +93,7 @@ public class UserServiceImpl implements UserService {
     	LOG.debug("--> update");
     	
     	User user = encryptPassword(domainObject);
-    	user.setUpdated(new Date());
+    	user.setUpdated(LocalDateTime.now());
     	int result = userRepository.update(user.getName(), user.getPassword(), user.getEmail(), user.isAdmin(), user.getUpdated(), user.getId());
     	
     	if(result < 1) {
@@ -109,7 +109,7 @@ public class UserServiceImpl implements UserService {
     public void updateWithoutPassword(User domainObject) throws ResourceNotFoundException {
     	int result;
     	LOG.debug("updateAdmin -->");
-    	result = userRepository.updateWithoutPassword(domainObject.getName(), domainObject.getEmail(), domainObject.isAdmin(), new Date() , domainObject.getId());
+    	result = userRepository.updateWithoutPassword(domainObject.getName(), domainObject.getEmail(), domainObject.isAdmin(), LocalDateTime.now() , domainObject.getId());
     	
     	if(result < 1) {
     		LOG.debug("<-- updateAdmin, ResourceNotFoundException");
