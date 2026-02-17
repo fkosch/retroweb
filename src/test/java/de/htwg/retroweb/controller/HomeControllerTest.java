@@ -47,7 +47,7 @@ public class HomeControllerTest {
 		
 		mvc.perform(MockMvcRequestBuilders.get("/home").session(mockSession))
 		.andExpect(cookie().exists("foo"))
-		.andExpect(model().size(3))
+		.andExpect(model().size(2))
         .andExpect(model().attribute("userName", "test"))
         .andExpect(model().attribute("isAdmin", false))
 		.andExpect(status().isOk())
