@@ -31,10 +31,6 @@ public class HomeControllerTest {
 	
 	private MockHttpSession mockSession = new MockHttpSession();
 	
-	@BeforeAll
-	public static void initializeData(){
-	}
-	
 	/**
 	 * Test method for {@link de.htwg.retroweb.controller.HomeController#home()}.
 	 * @throws Exception 
