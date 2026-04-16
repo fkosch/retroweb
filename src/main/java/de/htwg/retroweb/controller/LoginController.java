@@ -44,7 +44,7 @@ public class LoginController {
     public String login(Map<String, Object> model) {
 
         LOG.debug("--> {}", ControllerConstants.LOGIN);
-
+//Kommmentar2
         LOG.debug("<-- {}", ControllerConstants.LOGIN);
         return ControllerConstants.LOGIN;
     }
