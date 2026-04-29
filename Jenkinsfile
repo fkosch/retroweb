@@ -29,7 +29,7 @@ pipeline {
 					sh '${SONARQUBE_HOME}/bin/sonar-scanner ' +
 					'-Dsonar.projectKey=retroweb ' +
 					'-Dsonar.projectName=retroweb ' +
-					'-Dsonar.projectVersion=origin/master ' +
+					'-Dsonar.projectVersion=origin/main ' +
 					'-Dsonar.sources=src ' +
 					'-Dsonar.inclusions=**/main/java/** ' +
 					'-Dsonar.exclusions=**/Test/**,**/bcrypt/** ' +
