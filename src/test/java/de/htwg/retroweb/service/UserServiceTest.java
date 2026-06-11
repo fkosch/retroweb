@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 
@@ -25,14 +26,14 @@ public class UserServiceTest {
 	@MockitoBean
 	private UserRepository userRepo;
 
-	private UserServiceImpl userService;//Achtung hier Implementierung
+	@Autowired
+	private UserService userService;
 	
 	private List<User> users = null;
     
 	@BeforeEach
     public void setUp() {
 		users = new ArrayList<User>();
-		userService = new UserServiceImpl(userRepo, encryptionService);
     }
 
 	@Test
