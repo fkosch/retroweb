@@ -1,5 +1,5 @@
 plugins {
-	id 'org.springframework.boot' version '4.0.2'
+	id 'org.springframework.boot' version '4.1.0'
 	id 'io.spring.dependency-management' version '1.1.7'
 	id 'java'
 	id 'war'
@@ -11,11 +11,15 @@ group = 'de.htwg'
 
 java {
 	toolchain {
-		languageVersion = JavaLanguageVersion.of(21)
+		languageVersion = JavaLanguageVersion.of(25)
 	}
 }
 
 compileJava.options.encoding = 'UTF-8'
+
+compileJava {
+  options.compilerArgs << '-parameters'
+}
 
 eclipse.wtp.facet {
     // Change the version of the Dynamic Web Module facet
