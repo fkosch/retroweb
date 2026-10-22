@@ -1,8 +1,8 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" href="resources/css/retroweb.css" />
-	<link rel="stylesheet" href="resources/css/bootstrap-5.2.3.min.css">
-	<script type="text/javascript" src="resources/js/jquery-3.6.3.min.js" defer></script>
+	<link rel="stylesheet" href="resources/css/bootstrap-5.3.8.min.css">
+	<script type="text/javascript" src="resources/js/jquery-4.0.0.min.js" defer></script>
 	<script type="text/javascript" src="resources/js/scriptProject.js" defer></script>
 	<script type="text/javascript" src="resources/js/scriptUser.js" defer></script>
 	<script>
